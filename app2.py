@@ -117,7 +117,6 @@ def evaluate_debate_performance(topic, user_role, debate_history):
             [f"Round {h['round']}:\n{h['argument']}" for h in user_args]
         )
 
-        # --- UPDATED PROMPT LOGIC ---
         prompt = f"""Act as a strict debate coach.
 Topic: {topic}
 Side: {user_role}
@@ -126,12 +125,12 @@ Here are the user's arguments:
 {context}
 
 Provide a performance review. 
-1. Assign a score (0-100) for EACH round based on logic, persuasion, and relevance.
-2. Calculate the 'Overall Score' by taking the AVERAGE of the round scores.
+1. Start with an 'Overall Score' from 0 to 100 based on logic, persuasion, and relevance.
+2. Provide a breakdown for each round.
 3. STRICTLY OUTPUT PLAIN TEXT ONLY. DO NOT USE HTML TAGS.
 
 Format:
-Overall Score: [Average Score]/100
+Overall Score: [0-100]/100
 
 Round 1:
 Score: [0-100]
